@@ -1,0 +1,19 @@
+.container {
+    .tile{
+        padding-bottom: 15px;
+        padding-top: 15px;
+        min-height:110px;
+    }
+    img{
+        height:110px;
+        margin-bottom: 18px;
+    }
+    .details{
+        font-weight:bold;
+    }
+    .ellipses{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}

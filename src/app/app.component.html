@@ -4,10 +4,8 @@
     <li *ngFor="let category of categories | keyvalue:asIsOrder" [class.active]="selectedCategory===category.value">
       <a (click)="selectedCategory = category.value" data-toggle="tab" href="#{{category.value}}">{{category.value | uppercase }}</a>
     </li>
-    <!--<li><a data-toggle="tab" href="#others">OTHERS</a></li>-->
   </ul>
   <div class="tab-content">
-    {{selectedCategory}}
     <div id="{{selectedCategory}}" class="tab-pane fade in active">
       <div class="row">
         <ng-container *ngFor="let item of data | keyvalue:asIsOrder">
@@ -18,21 +16,15 @@
               <div class="ellipses"><span class="details">Description: </span><span tooltip="{{item.value.description}}" placement="left" show-delay="500">{{item.value.description}}</span></div>
               <div><span class="details">Key: </span><span>{{item.value.key}}</span></div>
           </div>
-        </ng-container>
-      </div>
-    </div>
-    <!--<div id="others" class="tab-pane fade">
-      <div class="row">
-        <ng-container *ngFor="let item of data | keyvalue:asIsOrder">
-          <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 tile" *ngIf="item.value.hub !== 'general'">
+          <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 tile" *ngIf="item.value.hub !== 'general' && selectedCategory !== 'general'">
               <img src={{item.value.image}} onerror="this.src='https://images.cloudelements.io/mandrill201810221710.png'" class="img-responsive" alt="img will load here"/>
               <div><span class="details">Name: </span><span>{{item.value.name}}</span></div>
-              <div><span class="details">Auther: </span><span>{{item.value.author}}</span></div>
-              <div class="ellipses"><span class="details">Description: </span><span tooltip="{{item.value.description}}" placement="left">{{item.value.description}}</span></div>
+              <div><span class="details">Author: </span><span>{{item.value.author}}</span></div>
+              <div class="ellipses"><span class="details">Description: </span><span tooltip="{{item.value.description}}" placement="left" show-delay="500">{{item.value.description}}</span></div>
               <div><span class="details">Key: </span><span>{{item.value.key}}</span></div>
           </div>
         </ng-container>
       </div>
-    </div>-->
+    </div>
   </div>
 </div>
